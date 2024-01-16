@@ -1,4 +1,4 @@
-async function fetchArt() {
+export async function fetchArt() {
   const response = await fetch('https://api.artic.edu/api/v1/artworks/129884');
   const art = await response.json();
   console.log(art.data);
@@ -8,7 +8,7 @@ async function fetchArt() {
 fetchArt();
 
 // GET IMAGE
-async function fetchImage() {
+export async function fetchImage() {
   const art = await fetchArt();
   const id = art.image_id;
   const base = 'https://www.artic.edu/iiif/2/';
@@ -23,4 +23,4 @@ console.log(art);
 // const id = art.data.image_id;
 // console.log(id);
 
-export default fetchArt;
+export default fetchImage;
