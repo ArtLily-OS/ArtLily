@@ -2,6 +2,7 @@ import { useState } from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '../public/vite.svg';
 import './App.css';
+import * as api from './backend/api.js';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -28,7 +29,10 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-      <div> </div>
+      <div>
+        {' '}
+        <img src="https://www.artic.edu/iiif/2/e966799b-97ee-1cc6-bd2f-a94b4b8bb8f9/full/843,/0/default.jpg"></img>
+      </div>
     </>
   );
 }
