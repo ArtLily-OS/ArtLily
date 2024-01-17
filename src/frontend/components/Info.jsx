@@ -8,7 +8,7 @@ export default function InfoContainer({ galleryData, currentImageIndex }) {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        height: '100vh',
+        
       }}
     >
       <div
@@ -16,7 +16,7 @@ export default function InfoContainer({ galleryData, currentImageIndex }) {
           textAlign: 'center',
           padding: '0px',
           maxWidth: '90%', // Set maximum width to half of the screen
-          margin: '0 auto', // Center horizontally
+          margin: '0', // Center horizontally
         }}
       >
         <p>
