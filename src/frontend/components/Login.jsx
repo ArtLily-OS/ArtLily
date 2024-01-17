@@ -24,17 +24,20 @@ export default function Login() {
 
   //Handle Login API Integration here
   const authenticateUser = async () => {
+    const username = document.querySelector('#username').value;
+    const password = document.querySelector('#password').value;
+    console.log(username, password);
     try {
-      const response = await fetch('http://localhost:5173', {
+      const response = await fetch('http://localhost:3000', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),
       });
 
+      const data = await response.json();
       if (response.ok) {
-        const data = await response.json();
-        console.log('Login Succesful:', data);
-        history.push(data);
+        console.log('Login Successful:', data);
+        // history.push(data);
       } else {
         console.log('Login Failed:', data);
       }
