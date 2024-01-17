@@ -1,16 +1,16 @@
 import { useState } from 'react';
-import { loginFields } from './constants/formFields';
+import { loginFields } from '../constants/formFields';
 import FormAction from './FormAction';
 import FormExtra from './FormExtra';
 import Input from './Input';
-import { useHistory } from 'react-router-dom';
+//import { useHistory } from 'react-router-dom';
 
 const fields = loginFields;
 let fieldsState = {};
 fields.forEach((field) => (fieldsState[field.id] = ''));
 
 export default function Login() {
-  const history = useHistory();
+  //const history = useHistory();
   const [loginState, setLoginState] = useState(fieldsState);
 
   const handleChange = (e) => {
@@ -44,8 +44,8 @@ export default function Login() {
   };
 
   return (
-    <form className='mt-8 space-y-6' onSubmit={handleSubmit}>
-      <div className='-space-y-px'>
+    <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+      <div className="-space-y-px">
         {fields.map((field) => (
           <Input
             key={field.id}
@@ -63,7 +63,7 @@ export default function Login() {
       </div>
 
       <FormExtra />
-      <FormAction handleSubmit={handleSubmit} text='Login' />
+      <FormAction handleSubmit={handleSubmit} text="Login" />
     </form>
   );
 }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import ImageContainer from './ImageContainer';
-import InfoContainer from './InfoContainer';
+import ImageContainer from './Image';
+import InfoContainer from './Info';
 
 const HomePage = () => {
   const [imageUrls, setImageUrls] = useState([]);
