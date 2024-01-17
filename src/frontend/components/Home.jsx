@@ -33,7 +33,7 @@ const HomePage = () => {
   
   return (
     <div style={{background: `url(/src/frontend/assets/dark-gray-wall-with-row-spotlights-empty-room.jpg)`, 
-    backgroundSize: 'cover'}}>
+    backgroundSize: 'cover', width:'100%'}}>
     <div>
     <Navbar />
     <div style={{ display: 'flex', height: '100vh' }}>
