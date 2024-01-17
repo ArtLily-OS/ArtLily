@@ -19,17 +19,17 @@ export default function ImageContainer({
       <div
         style={{
           textAlign: 'center',
-          position: 'relative',
-          maxWidth: '50%', // Set maximum width to half of the screen
+          position: 'initial',
+          maxWidth: '100%', // Set maximum width to half of the screen
           margin: '0 auto', // Center horizontally
         }}
       >
-        <h2>HERE IS THE PAINTERINGS</h2>
+        <h2>Title: {galleryData[currentImageIndex].title}</h2>
         <div
           style={{
             margin: '0 auto',
             maxWidth: '100%',
-            position: 'relative',
+            position: 'initial',
             borderRadius: '8px',
           }}
         >
@@ -37,15 +37,16 @@ export default function ImageContainer({
             src={galleryData[currentImageIndex].image_id}
             alt={`Image ${currentImageIndex + 1}`}
             style={{
-              width: 'auto',
-              height: 'auto',
+              width: '100%',
+              height: '60%',
               borderRadius: '8px',
+              boxShadow:'4px 4px lightgrey'
             }}
           />
           <button
             onClick={handlePrev}
             style={{
-              position: 'absolute',
+              position: 'initial',
               top: '50%',
               left: '-30px',
               transform: 'translateY(-50%)',

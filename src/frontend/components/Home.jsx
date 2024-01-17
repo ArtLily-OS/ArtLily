@@ -15,15 +15,6 @@ const HomePage = () => {
       setGalleryData(array);
     });
   }, []);
-  // const apiUrl = '';
-
-  // fetch(apiUrl)
-  //   .then((response) => response.json())
-  //   .then((data) => {
-  //     setImageUrls(data.images || []);
-  //     setTextData(data.text || '');
-  //   })
-  //   .catch((error) => console.error('Error fetching data:', error));
 
   const handleNext = () => {
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % galleryData.length);
@@ -39,10 +30,12 @@ const HomePage = () => {
     return null;
   }
 
-  <Navbar backgroudColor='rgb(168 85 247)'/>
+  
   return (
+    <div style={{background: `url(/src/frontend/assets/dark-gray-wall-with-row-spotlights-empty-room.jpg)`, 
+    backgroundSize: 'cover'}}>
     <div>
-      <Navbar/>
+    <Navbar />
     <div style={{ display: 'flex', height: '100vh' }}>
     <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
         <ImageContainer galleryData={galleryData} currentImageIndex={currentImageIndex} handleNext={handleNext} handlePrev={handlePrev} />
@@ -52,6 +45,8 @@ const HomePage = () => {
       </div>
     </div>
     </div>
+    </div>
+    
   );
 };
 

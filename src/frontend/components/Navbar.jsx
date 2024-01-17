@@ -37,7 +37,7 @@ const styles = {
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: '10px',
-    backgroundColor: 'rgb(168 85 247)',
+    backgroundColor: 'rgb(28, 28, 31)',
     color: '#fff',
   },
   logoContainer: {
