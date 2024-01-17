@@ -79,7 +79,7 @@ export default function ImageContainer({
       </div>
       <div
         style={{
-          marginTop: '50px',
+          marginTop: '50px', color:'lightgrey', fontSize: '20px'
         }}
       >
         <h2>Title: {galleryData[currentImageIndex].title}</h2>

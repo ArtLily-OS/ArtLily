@@ -8,6 +8,7 @@ export default function InfoContainer({ galleryData, currentImageIndex }) {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
+        color: 'lightgrey',
         
       }}
     >
