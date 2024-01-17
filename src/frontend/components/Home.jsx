@@ -47,21 +47,18 @@ const HomePage = () => {
     return null;
   }
 
+  <Navbar backgroudColor='rgb(168 85 247)'/>
   return (
     <div>
-      <Navbar />
-      <div style={{ display: 'flex' }}>
-        <ImageContainer
-          galleryData={galleryData}
-          currentImageIndex={currentImageIndex}
-          handleNext={handleNext}
-          handlePrev={handlePrev}
-        />
-        <InfoContainer
-          galleryData={galleryData}
-          currentImageIndex={currentImageIndex}
-        />
+      <Navbar/>
+    <div style={{ display: 'flex', height: '100vh' }}>
+    <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
+        <ImageContainer galleryData={galleryData} currentImageIndex={currentImageIndex} handleNext={handleNext} handlePrev={handlePrev} />
       </div>
+      <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
+        <InfoContainer galleryData={galleryData} currentImageIndex={currentImageIndex} />
+      </div>
+    </div>
     </div>
   );
 };
