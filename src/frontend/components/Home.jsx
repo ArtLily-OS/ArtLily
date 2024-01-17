@@ -1,29 +1,52 @@
 import React, { useEffect, useState } from 'react';
 import ImageContainer from './Image';
 import InfoContainer from './Info';
+import Navbar from './Navbar';
+import { fetchGallery } from '../../backend/api';
 
 const HomePage = () => {
-  const [imageUrls, setImageUrls] = useState([]);
-  const [textData, setTextData] = useState('');
+  const [galleryData, setGalleryData] = useState([]);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
-    const apiUrl = '';
-
-    fetch(apiUrl)
-      .then((response) => response.json())
-      .then((data) => {
-        setImageUrls(data.images || []);
-        setTextData(data.text || '');
-      })
-      .catch((error) => console.error('Error fetching data:', error));
+    const gallery = fetchGallery();
+    console.log(gallery);
+    gallery.then((array) => {
+      setGalleryData(array);
+    });
   }, []);
 
+  const handleNext = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % galleryData.length);
+  };
+
+  const handlePrev = () => {
+    setCurrentImageIndex(
+      (prevIndex) => (prevIndex - 1 + galleryData.length) % galleryData.length
+    );
+  };
+
+  if (galleryData.length === 0) {
+    return null;
+  }
+
+  
   return (
+    <div style={{background: `url(/src/frontend/assets/dark-gray-wall-with-row-spotlights-empty-room.jpg)`, 
+    backgroundSize: 'cover'}}>
     <div>
-      <h1>Welcome to the Home Page</h1>
-      <ImageContainer imageUrls={imageUrls} />
-      <InfoContainer textData={textData} />
+    <Navbar />
+    <div style={{ display: 'flex', height: '100vh' }}>
+    <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
+        <ImageContainer galleryData={galleryData} currentImageIndex={currentImageIndex} handleNext={handleNext} handlePrev={handlePrev} />
+      </div>
+      <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
+        <InfoContainer galleryData={galleryData} currentImageIndex={currentImageIndex} />
+      </div>
     </div>
+    </div>
+    </div>
+    
   );
 };
 

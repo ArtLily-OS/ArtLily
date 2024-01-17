@@ -54,6 +54,8 @@ export default function Login() {
   };
 
   return (
+    <div className='min-h-full flex items-center justify-center py-2 px-4 :px-6 lg:px-8'>
+      <div className='max-w-md w-full space-y-6'>
     <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
       <div className="-space-y-px">
         {fields.map((field) => (
@@ -75,5 +77,7 @@ export default function Login() {
       <FormExtra />
       <FormAction handleSubmit={handleSubmit} text="Login" />
     </form>
+    </div>
+    </div>
   );
 }
