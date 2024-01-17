@@ -4,6 +4,7 @@ import FormAction from './FormAction';
 import FormExtra from './FormExtra';
 import Input from './Input';
 //import { useHistory } from 'react-router-dom';
+import { redirect, useNavigate } from 'react-router-dom';
 
 const fields = loginFields;
 let fieldsState = {};
@@ -12,6 +13,7 @@ fields.forEach((field) => (fieldsState[field.id] = ''));
 export default function Login() {
   //const history = useHistory();
   const [loginState, setLoginState] = useState(fieldsState);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setLoginState({ ...loginState, [e.target.id]: e.target.value });
@@ -33,14 +35,19 @@ export default function Login() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),
       });
-
-      const data = await response.json();
-      if (response.ok) {
-        console.log('Login Successful:', data);
-        // history.push(data);
-      } else {
-        console.log('Login Failed:', data);
+      console.log(response);
+      if (response.status === 200) {
+        console.log('response is good, redirecting...');
+        return navigate('/home');
       }
+      // const data = await response.json();
+      // console.log(data);
+      // if (response.ok) {
+      //   console.log('Login Successful:', data);
+      //   // history.push(data);
+      // } else {
+      //   console.log('Login Failed:', data);
+      // }
     } catch (error) {
       console.log('Login Error:', error);
     }

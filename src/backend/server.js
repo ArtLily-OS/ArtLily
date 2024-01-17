@@ -29,18 +29,24 @@ app.post(
   }
 );
 
+// GET request to serve up home
+app.get('/home', (req, res) => {
+  res.sendFile(path.join(__dirname, '../../index.html'));
+});
+
 // GET request to serve up login page
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../../index.html'));
 });
 
 // POST request to log in a known user
-app.post('/', userController.login, userController.setCookie, (req, res) => {
-  res.status(200).redirect('/home');
+app.post('/', userController.login, (req, res) => {
+  res.status(200).send('Login successful');
 });
 
 // Global error handler
 app.use((err, req, res, next) => {
+  console.log(err);
   res.status(500).send(err);
 });
 
