@@ -32,7 +32,7 @@ export default function Navbar() {
 
 const styles = {
   navbar: {
-    position: 'fixed',
+    // position: 'fixed',
     top: 0,
     left: 0,
     right: 0,

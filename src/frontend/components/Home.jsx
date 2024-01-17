@@ -30,23 +30,35 @@ const HomePage = () => {
     return null;
   }
 
-  
   return (
-    <div style={{background: `url(/src/frontend/assets/dark-gray-wall-with-row-spotlights-empty-room.jpg)`, 
-    backgroundSize: 'cover', width:'100%'}}>
-    <div>
-    <Navbar />
-    <div style={{ display: 'flex', height: '100vh' }}>
-    <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
-        <ImageContainer galleryData={galleryData} currentImageIndex={currentImageIndex} handleNext={handleNext} handlePrev={handlePrev} />
+    <div
+      style={{
+        background: `url(/src/frontend/assets/dark-gray-wall-with-row-spotlights-empty-room.jpg)`,
+        backgroundSize: 'cover',
+        width: '100%',
+        height: '100vh',
+      }}
+    >
+      <Navbar />
+      <div
+        style={{
+          height: '100vh',
+          display: 'grid',
+          gridTemplateColumns: '1fr 1fr',
+        }}
+      >
+        <ImageContainer
+          galleryData={galleryData}
+          currentImageIndex={currentImageIndex}
+          handleNext={handleNext}
+          handlePrev={handlePrev}
+        />
+        <InfoContainer
+          galleryData={galleryData}
+          currentImageIndex={currentImageIndex}
+        />
       </div>
-      <div style={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
-        <InfoContainer galleryData={galleryData} currentImageIndex={currentImageIndex} />
-      </div>
     </div>
-    </div>
-    </div>
-    
   );
 };
 
