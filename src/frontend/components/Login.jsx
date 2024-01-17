@@ -4,7 +4,7 @@ import FormAction from './FormAction';
 import FormExtra from './FormExtra';
 import Input from './Input';
 //import { useHistory } from 'react-router-dom';
-import { redirect, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const fields = loginFields;
 let fieldsState = {};
