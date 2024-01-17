@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 export default function ImageContainer({
   galleryData,
@@ -11,16 +11,17 @@ export default function ImageContainer({
       style={{
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'center',
         alignItems: 'center',
+        justifyContent: 'center',
         height: '100vh',
       }}
     >
       <div
         style={{
           textAlign: 'center',
-          maxWidth: '100%',
           position: 'relative',
+          maxWidth: '50%', // Set maximum width to half of the screen
+          margin: '0 auto', // Center horizontally
         }}
       >
         <h2>HERE IS THE PAINTERINGS</h2>
@@ -36,7 +37,7 @@ export default function ImageContainer({
             src={galleryData[currentImageIndex].image_id}
             alt={`Image ${currentImageIndex + 1}`}
             style={{
-              width: '100%',
+              width: 'auto',
               height: 'auto',
               borderRadius: '8px',
             }}

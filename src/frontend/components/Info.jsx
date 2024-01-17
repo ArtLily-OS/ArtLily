@@ -15,9 +15,10 @@ export default function InfoContainer({ galleryData, currentImageIndex }) {
         style={{
           textAlign: 'center',
           padding: '20px',
+          maxWidth: '50%', // Set maximum width to half of the screen
+          margin: '0 auto', // Center horizontally
         }}
       >
-        <h2>Info Container</h2>
         <p>
           {galleryData.length > 0
             ? galleryData[currentImageIndex].textData

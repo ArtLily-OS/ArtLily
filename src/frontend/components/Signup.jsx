@@ -50,8 +50,9 @@ export default function Signup() {
   };
 
   return (
-    <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-      <div className="">
+    <div className="flex justify-center item-center">
+    <form className="mt-8 max-w-md w-full space-y-6 " onSubmit={handleSubmit}>
+      <div >
         {fields.map((field) => (
           <Input
             key={field.id}
@@ -69,5 +70,6 @@ export default function Signup() {
         <FormAction handleSubmit={handleSubmit} text="Signup" />
       </div>
     </form>
+    </div>
   );
 }
