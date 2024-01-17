@@ -33,7 +33,7 @@ export default function ImageContainer({
           }}
         >
           <img
-            src={galleryData[currentImageIndex].imageUrl}
+            src={galleryData[currentImageIndex].image_id}
             alt={`Image ${currentImageIndex + 1}`}
             style={{
               width: '100%',

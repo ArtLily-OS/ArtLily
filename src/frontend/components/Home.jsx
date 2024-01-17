@@ -2,26 +2,18 @@ import React, { useEffect, useState } from 'react';
 import ImageContainer from './Image';
 import InfoContainer from './Info';
 import Navbar from './Navbar';
+import { fetchGallery } from '../../backend/api';
 
 const HomePage = () => {
   const [galleryData, setGalleryData] = useState([]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
-    setGalleryData([
-      {
-        imageUrl: 'src/frontend/assets/SWML.jpeg',
-        textData: 'Squidward Lisa - Jesse Rosengrant',
-      },
-      {
-        imageUrl: 'src/frontend/assets/SBML.jpeg',
-        textData: 'Sponge Bob Lisa - Ryan Stankowitz',
-      },
-      {
-        imageUrl: 'src/frontend/assets/PSML.jpeg',
-        textData: 'Patrick Star Lisa - Daniel Liang',
-      },
-    ]);
+    const gallery = fetchGallery();
+    console.log(gallery);
+    gallery.then((array) => {
+      setGalleryData(array);
+    });
   }, []);
   // const apiUrl = '';
 
