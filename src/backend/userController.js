@@ -1,5 +1,6 @@
 const userController = {};
 import query from './db.js';
+// const db = require('./db.js');
 
 // GET user login details
 userController.login = (req, res, next) => {

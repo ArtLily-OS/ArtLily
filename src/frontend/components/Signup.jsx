@@ -3,6 +3,7 @@ import { signupFields } from '../constants/formFields';
 import FormAction from './FormAction';
 import Input from './Input';
 //import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const fields = signupFields;
 let fieldsState = {};
@@ -11,6 +12,7 @@ fields.forEach((field) => (fieldsState[field.id] = ''));
 
 export default function Signup() {
   //const history = useHistory();
+  const navigate = useNavigate();
   const [signupState, setSignupState] = useState(fieldsState);
 
   const handleChange = (e) =>
@@ -37,13 +39,17 @@ export default function Signup() {
         body: JSON.stringify(signupState),
       });
 
-      if (response.ok) {
-        const data = await response.json();
-        console.log('Signup successful');
-        history.push(data);
-      } else {
-        console.error('Signup failed');
+      if (response.status === 200) {
+        navigate('/home');
       }
+
+      // if (response.ok) {
+      //   const data = await response.json();
+      //   console.log('Signup successful');
+      //   // history.push(data);
+      // } else {
+      //   console.error('Signup failed');
+      // }
     } catch (error) {
       console.error('Signup Error:', error);
     }
@@ -51,25 +57,25 @@ export default function Signup() {
 
   return (
     <div className="flex justify-center item-center">
-    <form className="mt-8 max-w-md w-full space-y-6 " onSubmit={handleSubmit}>
-      <div >
-        {fields.map((field) => (
-          <Input
-            key={field.id}
-            handleChange={handleChange}
-            value={signupState[field.id]}
-            labelText={field.labelText}
-            labelFor={field.labelFor}
-            id={field.id}
-            name={field.name}
-            type={field.type}
-            isRequired={field.isRequired}
-            placeholder={field.placeholder}
-          />
-        ))}
-        <FormAction handleSubmit={handleSubmit} text="Signup" />
-      </div>
-    </form>
+      <form className="mt-8 max-w-md w-full space-y-6 " onSubmit={handleSubmit}>
+        <div>
+          {fields.map((field) => (
+            <Input
+              key={field.id}
+              handleChange={handleChange}
+              value={signupState[field.id]}
+              labelText={field.labelText}
+              labelFor={field.labelFor}
+              id={field.id}
+              name={field.name}
+              type={field.type}
+              isRequired={field.isRequired}
+              placeholder={field.placeholder}
+            />
+          ))}
+          <FormAction handleSubmit={handleSubmit} text="Signup" />
+        </div>
+      </form>
     </div>
   );
 }

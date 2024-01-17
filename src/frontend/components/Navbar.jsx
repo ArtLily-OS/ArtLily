@@ -1,20 +1,23 @@
 import React from 'react';
 //import { Link, useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function Navbar() {
   //const history = useHistory();
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     //clear cookie/auth data?
     //history.push('/');
+    navigate('/');
   };
 
   return (
     <nav style={styles.navbar}>
       <div style={styles.logoContainer}>
         <img
-          src='src/frontend/assets/art lily.png'
-          alt='Logo'
+          src="src/frontend/assets/art lily.png"
+          alt="Logo"
           style={styles.logo}
         />
       </div>

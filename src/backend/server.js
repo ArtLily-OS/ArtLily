@@ -25,7 +25,7 @@ app.post(
   userController.signup,
   // userController.setCookie,
   (req, res) => {
-    res.status(200).redirect('/home');
+    res.status(200).send('Login successful');
   }
 );
 
