@@ -8,12 +8,16 @@ const HomePage = () => {
   const [galleryData, setGalleryData] = useState([]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  useEffect(() => {
+  const updateGallery = () => {
     const gallery = fetchGallery();
     console.log(gallery);
     gallery.then((array) => {
       setGalleryData(array);
     });
+  };
+
+  useEffect(() => {
+    updateGallery();
   }, []);
 
   const handleNext = () => {
@@ -39,7 +43,7 @@ const HomePage = () => {
         height: '100vh',
       }}
     >
-      <Navbar />
+      <Navbar updateGallery={updateGallery} />
       <div
         style={{
           height: '100vh',

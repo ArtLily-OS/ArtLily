@@ -54,30 +54,30 @@ export default function Login() {
   };
 
   return (
-    <div className='min-h-full flex items-center justify-center py-2 px-4 :px-6 lg:px-8'>
-      <div className='max-w-md w-full space-y-6'>
-    <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-      <div className="-space-y-px">
-        {fields.map((field) => (
-          <Input
-            key={field.id}
-            handleChange={handleChange}
-            value={loginState[field.id]}
-            labelText={field.labelText}
-            labelFor={field.labelFor}
-            id={field.id}
-            name={field.name}
-            type={field.type}
-            isRequired={field.isRequired}
-            placeholder={field.placeholder}
-          />
-        ))}
-      </div>
+    <div className="flex items-center justify-center py-2 px-4 :px-6 lg:px-8">
+      <div className="max-w-md w-full space-y-6">
+        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+          <div className="-space-y-px">
+            {fields.map((field) => (
+              <Input
+                key={field.id}
+                handleChange={handleChange}
+                value={loginState[field.id]}
+                labelText={field.labelText}
+                labelFor={field.labelFor}
+                id={field.id}
+                name={field.name}
+                type={field.type}
+                isRequired={field.isRequired}
+                placeholder={field.placeholder}
+              />
+            ))}
+          </div>
 
-      <FormExtra />
-      <FormAction handleSubmit={handleSubmit} text="Login" />
-    </form>
-    </div>
+          <FormExtra />
+          <FormAction handleSubmit={handleSubmit} text="Login" />
+        </form>
+      </div>
     </div>
   );
 }

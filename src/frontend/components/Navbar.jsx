@@ -1,8 +1,9 @@
 import React from 'react';
 //import { Link, useHistory } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { fetchGallery } from '../../backend/api';
 
-export default function Navbar() {
+export default function Navbar({ updateGallery }) {
   //const history = useHistory();
   const navigate = useNavigate();
 
@@ -10,6 +11,10 @@ export default function Navbar() {
     //clear cookie/auth data?
     //history.push('/');
     navigate('/');
+  };
+
+  const handleRandomize = () => {
+    updateGallery();
   };
 
   return (
@@ -20,6 +25,11 @@ export default function Navbar() {
           alt="Logo"
           style={styles.logo}
         />
+      </div>
+      <div style={styles.logoutContainer}>
+        <button onClick={handleRandomize} style={styles.logoutButton}>
+          Randomize
+        </button>
       </div>
       <div style={styles.logoutContainer}>
         <button onClick={handleLogout} style={styles.logoutButton}>
