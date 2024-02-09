@@ -1,3 +1,3 @@
 # ArtLily
 
-Explore some of the worlds best art with ArtLily.
+Explore some of the world's best art with ArtLily.
